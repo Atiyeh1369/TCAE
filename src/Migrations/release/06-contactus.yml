@@ -1,0 +1,28 @@
+-
+  type: content_type
+  mode: create
+  content_type_group: tcae
+  identifier: contactus
+  name:
+    eng-GB: Contact Us
+  description: {  }
+  name_pattern: '<page_title>'
+  url_name_pattern: '<page_title>'
+  is_container: true
+  lang: eng-GB
+  attributes:
+    -
+      identifier: page_title
+      type: ezstring
+      name:
+        eng-GB: Page Title
+      description: {  }
+      required: true
+      searchable: true
+      info-collector: false
+      disable-translation: false
+      category: content
+      position: 1
+      field-settings: {  }
+      validator-configuration:
+        StringLengthValidator: { maxStringLength: null, minStringLength: null }
