@@ -1,0 +1,72 @@
+-
+  type: content_type
+  mode: create
+  content_type_group: tcae
+  identifier: knowledge_serie
+  name:
+    eng-GB: knowledge Serie
+  description: {  }
+  name_pattern: '<page_title>'
+  url_name_pattern: '<page_title>'
+  is_container: true
+  lang: eng-GB
+  attributes:
+    -
+      identifier: page_title
+      type: ezstring
+      name:
+        eng-GB: Page Title
+      description: {  }
+      required: true
+      searchable: true
+      info-collector: false
+      disable-translation: false
+      category: content
+      position: 1
+      field-settings: {  }
+      validator-configuration:
+        StringLengthValidator: { maxStringLength: null, minStringLength: null }
+    -
+      identifier: title
+      type: ezstring
+      name:
+        eng-GB: title
+      description: {  }
+      required: true
+      searchable: true
+      info-collector: false
+      disable-translation: false
+      category: content
+      position: 2
+      field-settings: {  }
+      validator-configuration:
+        StringLengthValidator: { maxStringLength: null, minStringLength: null }
+    -
+      identifier: text
+      type: eztext
+      name:
+        eng-GB: text
+      description: {  }
+      required: false
+      searchable: true
+      info-collector: false
+      disable-translation: false
+      category: content
+      position: 3
+      field-settings: {  }
+    -
+      identifier: image
+      type: ezimage
+      name:
+        eng-GB: image
+      description: {  }
+      required: false
+      searchable: false
+      info-collector: false
+      disable-translation: false
+      category: content
+      position: 4
+
+
+
+
