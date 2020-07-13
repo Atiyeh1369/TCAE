@@ -1,0 +1,24 @@
+{% block content %}
+<main class="py-0 py-lg-5 my-lg-5">
+    <div class="container text-center my-lg-5">
+        <div>
+            <h1>{{ ez_field_value(content,'title1') }}</h1>
+            <p style="font-size:20px">{{ ez_field_value(content,'text1') }}</p>
+            <div><img src="{{ ez_field_value(content,'image1').uri }}"></div>
+        </div>
+        <div>
+            <h1>{{ ez_field_value(content,'title2') }}</h1>
+            <p style="font-size:20px">{{ ez_field_value(content,'text2') }}</p>
+            <div><img src="{{ ez_field_value(content,'image2').uri }}"></div>
+        </div>
+        <div>
+            <h1>{{ ez_field_value(content,'title3') }}</h1>
+            <p style="font-size:20px">{{ ez_field_value(content,'text3') }}</p>
+            <div><img src="{{ ez_field_value(content,'image3').uri }}"></div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+
+
