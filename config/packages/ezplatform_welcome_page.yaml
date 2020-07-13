@@ -12,6 +12,10 @@ ezplatform:
                         template: "@ezdesign/full/contact.html.twig"
                         match:
                             Id\Location: 56
+                    knowledge_serie:
+                        template: "@ezdesign/full/knowledge-series.html.twig"
+                        match:
+                            Id\Location: 85
                     home:
                         template: "@ezdesign/full/home.html.twig"
                         match:
