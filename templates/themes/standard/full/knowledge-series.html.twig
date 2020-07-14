@@ -1,1 +1,28 @@
-<img src="{{ ez_field_value(content,'image').uri }}">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="container d-inline-block">
+            <div class=" row text-center py-5">
+                {% for item in items %}
+                <div class="col-md-4 mb-5">
+                    <div class="card shadow" style="height: 100%">
+                            <img src="{{ ez_field_value(item,'image').uri }}" width="100%"><br>
+                            <h5>{{ ez_field_value(item,'title') }}</h5><br>
+                            <p>{{ ez_field_value(item,'text') }}</p><br>
+                            <a class="btn btn-outline-danger ml-3" href="#" style="width: 35%">Read more</a><br>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>

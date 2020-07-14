@@ -1,4 +1,3 @@
-# You can safely delete this file to disable welcome page
 ezplatform:
     system:
         site:
@@ -12,11 +11,13 @@ ezplatform:
                         template: "@ezdesign/full/contact.html.twig"
                         match:
                             Id\Location: 56
-                    knowledge_serie:
+                    the_knowledge_serie	:
+                        controller: App\Controller\FolderController::showAction
                         template: "@ezdesign/full/knowledge-series.html.twig"
                         match:
-                            Id\Location: 85
+                            Identifier\ContentType: the_knowledge_serie
                     home:
+                        controller: App\Controller\FolderController::showAction
                         template: "@ezdesign/full/home.html.twig"
                         match:
                             Identifier\ContentType: home
