@@ -1,22 +1,50 @@
-       <div class="container">
-        <div class="row">
-            <h1>{{ ez_field_value(content,'title1') }}</h1>
-            <div class="column" style="width: 50%" >
-            {{ ez_field_value(content,'text1') }}
+{{ include("@ezdesign/full/header.html.twig") }}
+</head>
+<body>
+<div class="container">
+    <div class="container d-inline-block">
+        <div class=" row text-left py-5">
+            <div class="card shadow" style="height: 100%; padding: 20px;">
+                        <h2>{{ ez_field_value(content,'title1') }}</h2><br>
+                        <div style="display: flex;">
+                        <p style="width: 70%;">{{ ez_field_value(content,'text1') }}</p><br>
+                        <img src="{{ ez_field_value(content,'image1').uri }}" style="width: 25%; border-radius: 50%;"><br>
+                        </div>
+                        <a class="btn btn-outline-danger ml-3" href="#" style="width: 20%">JOIN THE TCAE GROUP</a><br>
             </div>
-            <div class="column" style="vertical-align: center"><img  src="{{ ez_field_value(content,'image1').uri }}"></div>
         </div>
-        <div class="row">
-            <h1>{{ ez_field_value(content,'title2') }}</h1>
-            <p style="font-size:20px">{{ ez_field_value(content,'text2') }}</p>
-            <div><img src="{{ ez_field_value(content,'image2').uri }}"></div>
+    </div>
+    <div class="container d-inline-block">
+        <div class=" row text-left py-5">
+            <div class="card shadow" style="height: 100%; padding: 20px;">
+                    <h2>{{ ez_field_value(content,'title2') }}</h2><br>
+                    <div style="display: flex;">
+                    <p style="width: 70%;">{{ ez_field_value(content,'text2') }}</p><br>
+                    <img src="{{ ez_field_value(content,'image2').uri }}" style="width: 25%; border-radius: 50%;"><br>
+                    </div>
+                    <a class="btn btn-outline-danger ml-3" href="#" style="width: 20%">JOIN THE TCAE GROUP</a><br>
+            </div>
         </div>
-        <div class="row">
-            <h1>{{ ez_field_value(content,'title3') }}</h1>
-            <p style="font-size:20px">{{ ez_field_value(content,'text3') }}</p>
-            <div><img src="{{ ez_field_value(content,'image3').uri }}"></div>
+    </div>
+    <div class="container d-inline-block">
+        <div class=" row text-left py-5">
+            <div class="card shadow" style="height: 100%; padding: 20px;">
+                <h2>{{ ez_field_value(content,'title3') }}</h2><br>
+                <div style="display: flex;">
+                    <p style="width: 70%;">{{ ez_field_value(content,'text3') }}</p><br>
+                    <img src="{{ ez_field_value(content,'image3').uri }}" style="width: 25%; border-radius: 50%;"><br>
+                </div>
+               <a href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQGWH0Niscr9QwAAAXNSaDmIMRbTvAXrMJNMQ8FekJsGn8DNk8ltFFTEQlehHXNDMD7Ml8qI-kTYTZ5O12DY-Zd4hF1HEb7-BML4wNnuhHhDhxJzYpHa0QbgwqGxoR9KjiZ9XmE=&originalReferer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fsouzanesmaili"><img src="{{ ez_field_value(content,'image4').uri }}" style="width: 5%; border-radius: 50%;"><br></a>
+            </div>
         </div>
-       </div>
+    </div>
+
+</div>
+</body>
+
+
+
+
 
 
 

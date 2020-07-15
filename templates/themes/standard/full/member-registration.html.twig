@@ -1,0 +1,59 @@
+{{ include("@ezdesign/full/header.html.twig") }}
+<style>
+    .form-control {
+        background-color: whitesmoke;
+        height: 50px;
+        width:400px;
+    }
+    label{
+        font-weight: bold;
+        color: gray;
+    }
+</style>
+</head>
+<div class="container">
+    <h5 style="margin-top: 50px">PLEASE FILL OUT THE FORM BELOW TO REGISTER.</h5>
+    <form>
+        <div class="form-row" style="margin-top:30px;">
+            <div class="col">
+                <label>First Name</label>
+                <input  type="text" class="form-control" required>
+            </div>
+            <div class="col">
+                <label>Last Name</label>
+                <input type="text" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-row" style="margin-top:30px;">
+            <div class="col">
+                <label>Email</label>
+                <input  type="text" class="form-control" required>
+            </div>
+            <div class="col">
+                <label>Phone Number</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-row" style="margin-top:30px;">
+            <div class="col">
+                <label>Job Title</label>
+                <input  type="text" class="form-control" required>
+            </div>
+            <div class="col">
+                <label>Institution Name</label>
+                <input type="text" class="form-control"  required>
+            </div>
+        </div>
+        <div class="form-row" style="margin-top:30px;">
+            <div class="col">
+                <label>Username</label>
+                <input  type="text" class="form-control" required>
+            </div>
+            <div class="col">
+                <label>Password</label>
+                <input type="text" class="form-control"  required>
+            </div>
+        </div>
+        <p ><input type="submit" value="REGISTER" style="background-color: #ff6666; width: 15%; height: 50px; color: white; font-size: large;  font-weight: bold; margin-top: 20px;"></p>
+    </form>
+</div>

@@ -18,7 +18,7 @@
                             <img src="{{ ez_field_value(item,'image').uri }}" width="100%"><br>
                             <h5>{{ ez_field_value(item,'title') }}</h5><br>
                             <p>{{ ez_field_value(item,'text') }}</p><br>
-                            <a class="btn btn-outline-danger ml-3" href="#" style="width: 35%">Read more</a><br>
+                            <a class="btn btn-outline-danger ml-3" href="{{ path('ez_urlalias', {'contentId': item.contentInfo.id}) }}" style="width: 35%">Read more</a><br>
                     </div>
                 </div>
                 {% endfor %}
