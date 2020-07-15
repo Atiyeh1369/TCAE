@@ -3,14 +3,10 @@ ezplatform:
         site:
             content_view:
                 full:
-                    aboutUs:
+                    about Us:
                         template: "@ezdesign/full/about.html.twig"
                         match:
-                            Id\Location: 55
-                    contactUs:
-                        template: "@ezdesign/full/contact.html.twig"
-                        match:
-                            Id\Location: 56
+                            Identifier\ContentType: about_us
                     the_knowledge_serie	:
                         controller: App\Controller\FolderController::showAction
                         template: "@ezdesign/full/knowledge-series.html.twig"
@@ -25,6 +21,19 @@ ezplatform:
                         template: "@ezdesign/full/event.html.twig"
                         match:
                             Identifier\ContentType: event
+                    contact Us:
+                        template: "@ezdesign/full/contact.html.twig"
+                        match:
+                            Identifier\ContentType: contact_us
+                    member:
+                        template: "@ezdesign/full/member-registration.html.twig"
+                        match:
+                            Identifier\ContentType: member
+                    login:
+                        template: "@ezdesign/full/member-login.html.twig"
+                        match:
+                            Identifier\ContentType: login
+
 
 
 
