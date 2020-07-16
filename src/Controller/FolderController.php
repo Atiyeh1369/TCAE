@@ -10,6 +10,8 @@ use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
 use eZ\Publish\Core\MVC\ConfigResolverInterface;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
 use App\Criteria\Children;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use http\QueryString;
 
 class FolderController
 {
@@ -45,6 +47,7 @@ class FolderController
      *
      * @return \eZ\Publish\Core\MVC\Symfony\View\ContentView
      */
+
     public function showAction(ContentView $view)
     {
         $view->addParameters([
@@ -53,17 +56,39 @@ class FolderController
         return $view;
     }
 
+    public function homeAction(ContentView $view)
+    {
+        $view->addParameters([
+            'data' => $this->fetchItems_home($view->getLocation(),25),
+        ]);
+        return $view;
+    }
+
     private function fetchItems($location, $limit)
     {
         $languages = $this->configResolver->getParameter('languages');
-        $query = new Query();
-
+        $query = new Query([]);
         $query->query = $this->childrenCriteria->generateChildCriterion($location, $languages);
-        $query->performCount = false;
         $query->limit = $limit;
-        $query->sortClauses = [
-            new SortClause\DatePublished(Query::SORT_DESC),
-        ];
+        $results = $this->searchService->findContent($query);
+        $items = [];
+        foreach ($results->searchHits as $item) {
+            $items[] = $item->valueObject;
+        }
+        return $items;
+    }
+
+    private function fetchItems_home($location, $limit)
+    {
+        $query = new Query([
+            'filter' => new Criterion\LogicalAnd([
+                new Criterion\Visibility(Criterion\Visibility::VISIBLE),
+                new Criterion\ContentTypeId(1)
+            ])
+        ]);
+        $languages = $this->configResolver->getParameter('languages');
+        $query->query = $this->childrenCriteria->generateChildCriterion($location, $languages);
+        $query->limit = $limit;
         $results = $this->searchService->findContent($query);
         $items = [];
         foreach ($results->searchHits as $item) {

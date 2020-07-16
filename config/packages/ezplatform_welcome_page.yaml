@@ -13,7 +13,7 @@ ezplatform:
                         match:
                             Identifier\ContentType: the_knowledge_serie
                     home:
-                        controller: App\Controller\FolderController::showAction
+                        controller: App\Controller\FolderController::homeAction
                         template: "@ezdesign/full/home.html.twig"
                         match:
                             Identifier\ContentType: home
@@ -33,17 +33,3 @@ ezplatform:
                         template: "@ezdesign/full/member-login.html.twig"
                         match:
                             Identifier\ContentType: login
-
-
-
-
-
-
-
-
-
-
-
-
-
-
