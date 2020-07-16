@@ -26,3 +26,58 @@
       field-settings: {  }
       validator-configuration:
         StringLengthValidator: { maxStringLength: null, minStringLength: null }
+    -
+      identifier: top_text
+      type: eztext
+      name:
+        eng-GB: Top Text
+      description: {  }
+      required: false
+      searchable: true
+      info-collector: false
+      disable-translation: false
+      category: content
+      position: 2
+      field-settings: {  }
+    -
+      identifier: image
+      type: ezimage
+      name:
+        eng-GB: Image
+      description: {  }
+      required: false
+      searchable: false
+      info-collector: false
+      disable-translation: false
+      category: content
+      position: 3
+    -
+      identifier: first_string
+      type: ezstring
+      name:
+        eng-GB: First String
+      description: {  }
+      required: false
+      searchable: true
+      info-collector: false
+      disable-translation: false
+      category: content
+      position: 4
+      field-settings: { }
+      validator-configuration:
+        StringLengthValidator: { maxStringLength: null, minStringLength: null }
+    -
+      identifier: second_string
+      type: ezstring
+      name:
+        eng-GB: Second String
+      description: {  }
+      required: false
+      searchable: true
+      info-collector: false
+      disable-translation: false
+      category: content
+      position: 5
+      field-settings: { }
+      validator-configuration:
+        StringLengthValidator: { maxStringLength: null, minStringLength: null }
