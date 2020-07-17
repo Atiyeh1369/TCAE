@@ -1,5 +1,6 @@
 parameters:
     locale: 'en'
+    ezsettings.default.security.login_template: "@@ezdesign/full/member-login.html.twig"
 
 services:
     app.criteria.children:

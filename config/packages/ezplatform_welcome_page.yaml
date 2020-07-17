@@ -17,10 +17,16 @@ ezplatform:
                         template: "@ezdesign/full/home.html.twig"
                         match:
                             Identifier\ContentType: home
-                    event:
+                    events:
+                        controller: App\Controller\FolderController::showAction
                         template: "@ezdesign/full/event.html.twig"
                         match:
-                            Identifier\ContentType: event
+                            Identifier\ContentType: myfolder
+                    category:
+                        controller: App\Controller\FolderController::showAction
+                        template: "@ezdesign/full/category.html.twig"
+                        match:
+                            Identifier\ContentType: myfolder
                     contact Us:
                         template: "@ezdesign/full/contact.html.twig"
                         match:
