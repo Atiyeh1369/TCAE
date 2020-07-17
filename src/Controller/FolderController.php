@@ -59,7 +59,7 @@ class FolderController
     public function homeAction(ContentView $view)
     {
         $view->addParameters([
-            'data' => $this->fetchItems_home($view->getLocation(),25),
+            'data' => $this->fetchItems_events($view->getLocation(),25),
         ]);
         return $view;
     }
@@ -83,7 +83,25 @@ class FolderController
         $query = new Query([
             'filter' => new Criterion\LogicalAnd([
                 new Criterion\Visibility(Criterion\Visibility::VISIBLE),
-                new Criterion\ContentTypeId(1)
+                new Criterion\ContentTypeId(26)
+            ])
+        ]);
+        $languages = $this->configResolver->getParameter('languages');
+        $query->query = $this->childrenCriteria->generateChildCriterion($location, $languages);
+        $query->limit = $limit;
+        $results = $this->searchService->findContent($query);
+        $items = [];
+        foreach ($results->searchHits as $item) {
+            $items[] = $item->valueObject;
+        }
+        return $items;
+    }
+    private function fetchItems_events($location, $limit)
+    {
+        $query = new Query([
+            'filter' => new Criterion\LogicalAnd([
+                new Criterion\Visibility(Criterion\Visibility::VISIBLE),
+                new Criterion\ContentId(141)
             ])
         ]);
         $languages = $this->configResolver->getParameter('languages');
