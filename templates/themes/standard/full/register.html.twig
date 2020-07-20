@@ -1,0 +1,57 @@
+{{ include("@ezdesign/full/header.html.twig") }}
+{% block content %}
+    {{ form_start(form,{attr: {class: 'registration-form'} }) }}
+    <div class="container">
+        <h5 style="margin-top: 50px">{{'PLEASE FILL OUT THE FORM BELOW TO REGISTER.'|trans }}</h5>
+        <div class="row">
+        <div class="input-group mb-3 col">
+            <div class="input-group-prepend"><span class="input-group-text"><i class="icon-user"></i></span>
+            </div>
+            {{ form_widget(form.fieldsData.first_name.value,{'attr': {'placeholder': 'First Name'|trans ,'class':'form-control'}}) }}
+        </div>
+        <div class="input-group mb-3 col">
+            <div class="input-group-prepend"><span class="input-group-text"><i class="icon-user"></i></span>
+            </div>
+            {{ form_widget(form.fieldsData.last_name.value,{'attr': {'placeholder': 'Last Name'|trans ,'class':'form-control'}}) }}
+        </div>
+        </div>
+        <div class="row">
+        <div class="input-group mb-3 col">
+            <div class="input-group-prepend"><span class="input-group-text"><i class="icon-user"></i></span>
+            </div>
+            {{ form_widget(form.fieldsData.user_account.value.username,{'attr': {'placeholder': 'User Name'|trans ,'class':'form-control'}}) }}
+        </div>
+        <div class="input-group mb-3 col">
+            <div class="input-group-prepend"><span class="input-group-text">
+                <i class="icon-lock"></i></span>
+            </div>
+            {{ form_widget(form.fieldsData.user_account.value.password.first,{'attr': {'placeholder': 'Password'|trans ,'class':'form-control',
+                'type':'password', 'data-indicator':'pwindicator'}}) }}
+            {{ form_errors(form.fieldsData.user_account.value.password.first) }}
+        </div>
+        </div>
+        <div id="pwindicator">
+            <div class="bar"></div>
+            <div class="label"></div>
+        </div>
+        <div class="row">
+        <div class="input-group mb-3 col">
+            <div class="input-group-prepend"><span class="input-group-text"><i class="icon-lock"></i></span>
+            </div>
+            {{ form_widget(form.fieldsData.user_account.value.password.second,{'attr': {'placeholder': 'Confirm Password'|trans ,'class':'form-control'}}) }}
+            {{ form_errors(form.fieldsData.user_account.value.password.second) }}
+        </div>
+        <div class="input-group mb-3 col">
+            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-envelope"></i></span></div>
+            {{ form_widget(form.fieldsData.user_account.value.email,{'attr': {'placeholder': 'Email'|trans ,'class':'form-control'}}) }}
+            <div class="d-lg-none">
+                {{ form_widget(form.fieldsData.signature.value,{'attr': {'style':'display: none;'}}) }}
+                {{ form_widget(form.fieldsData.image.value,{'attr': {'style':'display: none;'}}) }}
+            </div>
+        </div>
+        </div>
+        {{ form_widget(form.register, {'attr': {'class': 'btn btn-block btn-success', style: "background-color: #ff6666; width: 15%; height: 50px; color: white; font-size: large;  font-weight: bold; margin-top: 20px;"}}) }}
+    </div>
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}
