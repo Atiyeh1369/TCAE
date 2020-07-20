@@ -17,16 +17,6 @@ ezplatform:
                         template: "@ezdesign/full/home.html.twig"
                         match:
                             Identifier\ContentType: home
-                    events:
-                        controller: App\Controller\FolderController::showAction
-                        template: "@ezdesign/full/event.html.twig"
-                        match:
-                            Id\Location: 132
-                    category:
-                        controller: App\Controller\FolderController::showAction
-                        template: "@ezdesign/full/category.html.twig"
-                        match:
-                            Id\Location: 142
                     contact Us:
                         template: "@ezdesign/full/contact.html.twig"
                         match:
