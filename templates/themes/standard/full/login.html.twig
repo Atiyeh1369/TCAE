@@ -1,0 +1,47 @@
+{{ include("@ezdesign/full/header.html.twig") }}
+<style>
+    .form-control {
+        background-color: whitesmoke;
+        height: 50px;
+        width:400px;
+    }
+    label{
+        font-weight: bold;
+        color: gray;
+    }
+</style>
+</head>
+{% block content %}
+    {% block login_content %}
+        <div class="container">
+            <div class="page-header">
+                <h5 style="margin-top: 50px">PLEASE FILL OUT THE FORM BELOW TO LOGIN.</h5>
+            </div>
+            {% if error %}
+                <div class="alert alert-danger">{{ error.message|trans }}</div>
+            {% endif %}
+            <form action="{{ path( 'login_check' ) }}" method="post" role="form">
+                {% block login_fields %}
+                    <div class="form-row" style="margin-top:30px;">
+                        <div class="col">
+                            <label>Username</label>
+                            <input type="text" id="username" class="form-control" name="_username" value="{{ last_username }}" required="required" autofocus="autofocus" autocomplete="on" placeholder="{{ 'Enter login or email'|trans }}" />
+                        </div>
+                        <div class="col {% if error %} has-error{% endif %}">
+                            <label>Password</label>
+                            <input type="password" id="password" class="form-control" name="_password" required="required" placeholder="{{ 'Enter password'|trans }}" />
+                        </div>
+                    </div>
+                    <div class="form-check form-check-inline"  style="margin-top: 10px;">
+                        <input  class="form-check-input" type="checkbox" id="Checkbox">
+                        <label class="form-check-label" for="inlineCheckbox3">Remember me</label>
+                    </div>
+                        <p><button type="submit" style="background-color: #ff6666; width: 15%; height: 50px; color: white; font-size: large;  font-weight: bold; margin-top: 20px;">{{ 'LOGIN'|trans }}</button></p>
+                        <a href="#" style="color: #ff6666;">Forgot password?</a>
+                        <p style="color: gray;">Not Registered? <a href="http://18.195.199.188/register" style="font-weight: bold; color:#ff6666 ">SIGN UP</a></p>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token("authenticate") }}" />
+                {% endblock %}
+            </form>
+        </div>
+    {% endblock %}
+{% endblock %}

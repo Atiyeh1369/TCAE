@@ -1,4 +1,5 @@
-{{ include("@ezdesign/full/header.html.twig") }}
+{% block content %}
+    {{ form_start(form,{attr: {class: 'registration-form'} }) }}
 <style>
     .form-control {
         background-color: whitesmoke;
@@ -18,16 +19,19 @@
             <div class="col">
                 <label>First Name</label>
                 <input  type="text" class="form-control" required>
+                {{ form_widget(form.fieldsData.first_name.value,{'attr': {'placeholder': 'First Name'|trans ,'class':'form-control'}}) }}
             </div>
             <div class="col">
                 <label>Last Name</label>
                 <input type="text" class="form-control" required>
+                {{ form_widget(form.fieldsData.user_account.value.username,{'attr': {'placeholder': 'User Name'|trans ,'class':'form-control'}}) }}
             </div>
         </div>
         <div class="form-row" style="margin-top:30px;">
             <div class="col">
                 <label>Email</label>
                 <input  type="text" class="form-control" required>
+                {{ form_widget(form.fieldsData.user_account.value.email,{'attr': {'placeholder': 'Email'|trans ,'class':'form-control'}}) }}
             </div>
             <div class="col">
                 <label>Phone Number</label>
@@ -52,8 +56,14 @@
             <div class="col">
                 <label>Password</label>
                 <input type="text" class="form-control"  required>
+                {{ form_widget(form.fieldsData.user_account.value.password.first,{'attr': {'placeholder': 'Password'|trans ,'class':'form-control',
+                    'type':'password', 'data-indicator':'pwindicator'}}) }}
+                {{ form_errors(form.fieldsData.user_account.value.password.first) }}
             </div>
         </div>
-        <p ><input type="submit" value="REGISTER" style="background-color: #ff6666; width: 15%; height: 50px; color: white; font-size: large;  font-weight: bold; margin-top: 20px;"></p>
+        <p ><input type="submit" value="REGISTER" style="background-color: #ff6666; width: 15%; height: 50px; color: white; font-size: large;  font-weight: bold; margin-top: 20px;">{{ form_widget(form.register, {'attr': {'class': 'btn btn-block btn-success'}}) }}</p>
     </form>
 </div>
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}

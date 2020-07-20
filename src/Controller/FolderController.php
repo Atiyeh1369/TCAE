@@ -7,11 +7,12 @@ use eZ\Publish\API\Repository\LocationService;
 use eZ\Publish\API\Repository\SearchService;
 use eZ\Publish\API\Repository\Values\Content\Query;
 use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
+use eZ\Publish\API\Repository\Values\Content\VersionInfo;
 use eZ\Publish\Core\MVC\ConfigResolverInterface;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
 use App\Criteria\Children;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use http\QueryString;
+use EzSystems\EzPlatformRest\Server\Input\Parser\Criterion\ContentId;
 
 class FolderController
 {
@@ -58,8 +59,12 @@ class FolderController
 
     public function homeAction(ContentView $view)
     {
+        $events = $this->fetchItems_events($view->getLocation(),25);
+        $category = $this->fetchItems_category($view->getLocation(),25);
+
         $view->addParameters([
-            'data' => $this->fetchItems_events($view->getLocation(),25),
+            'events' => $events,
+            'category' => $category
         ]);
         return $view;
     }
@@ -86,8 +91,6 @@ class FolderController
                 new Criterion\ContentTypeId(26)
             ])
         ]);
-        $languages = $this->configResolver->getParameter('languages');
-        $query->query = $this->childrenCriteria->generateChildCriterion($location, $languages);
         $query->limit = $limit;
         $results = $this->searchService->findContent($query);
         $items = [];
@@ -98,14 +101,30 @@ class FolderController
     }
     private function fetchItems_events($location, $limit)
     {
+        $languages = $this->configResolver->getParameter('languages');
         $query = new Query([
             'filter' => new Criterion\LogicalAnd([
                 new Criterion\Visibility(Criterion\Visibility::VISIBLE),
-                new Criterion\ContentId(141)
+                new Criterion\ParentLocationId(132)
             ])
         ]);
+        $query->limit = $limit;
+        $results = $this->searchService->findContent($query);
+        $items = [];
+        foreach ($results->searchHits as $item) {
+            $items[] = $item->valueObject;
+        }
+        return $items;
+    }
+    private function fetchItems_category($location, $limit)
+    {
         $languages = $this->configResolver->getParameter('languages');
-        $query->query = $this->childrenCriteria->generateChildCriterion($location, $languages);
+        $query = new Query([
+            'filter' => new Criterion\LogicalAnd([
+                new Criterion\Visibility(Criterion\Visibility::VISIBLE),
+                new Criterion\ParentLocationId(142)
+            ])
+        ]);
         $query->limit = $limit;
         $results = $this->searchService->findContent($query);
         $items = [];

@@ -21,21 +21,18 @@ ezplatform:
                         controller: App\Controller\FolderController::showAction
                         template: "@ezdesign/full/event.html.twig"
                         match:
-                            Identifier\ContentType: myfolder
+                            Id\Location: 132
                     category:
                         controller: App\Controller\FolderController::showAction
                         template: "@ezdesign/full/category.html.twig"
                         match:
-                            Identifier\ContentType: myfolder
+                            Id\Location: 142
                     contact Us:
                         template: "@ezdesign/full/contact.html.twig"
                         match:
                             Identifier\ContentType: contact_us
-                    member:
-                        template: "@ezdesign/full/member-registration.html.twig"
+                    galleries:
+                        controller: App\Controller\FolderController::showAction
+                        template: "@ezdesign/full/gallery.html.twig"
                         match:
-                            Identifier\ContentType: member
-                    login:
-                        template: "@ezdesign/full/member-login.html.twig"
-                        match:
-                            Identifier\ContentType: login
+                            Id\Location: 151

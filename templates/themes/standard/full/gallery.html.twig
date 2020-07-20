@@ -1,0 +1,19 @@
+{{ include("@ezdesign/full/header.html.twig") }}
+</head>
+<body>
+<div class="container">
+    <div class="container d-inline-block" style="margin-top:50px ">
+            {% for item in items %}
+                <div class="mb-5">
+                        <div class="d-inline-flex">
+                        <img src="{{ ez_field_value(item,'image').uri }}" width="50%">
+                    <div class="d-inline-block">
+                        <h3 style="margin-left: 30px;">{{ ez_field_value(item,'title') }}</h3>
+                        <a class="btn btn-outline-danger ml-3" href="{{ path('ez_urlalias', {'contentId': item.contentInfo.id}) }}" style="width: 55%; margin-top: 50px;">VIEW VIDEOS AND PHOTOS</a><br>
+                        </div>
+                     </div>
+                </div>
+            {% endfor %}
+    </div>
+</div>
+</body>
